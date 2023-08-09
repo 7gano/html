@@ -7,10 +7,56 @@
     width: 600px;
     height: 400px;
     border: 1px solid #ccc;
+    background-color: black;
   }
   #canvas {
     width: 100%;
     height: 100%;
+  }
+  #uploadButton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #uploadButton:hover {
+    background-color: #0056b3;
+  }
+  #imageInput {
+    display: none;
+  }
+  #fileLabel {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #fileLabel:hover {
+    background-color: #0056b3;
+  }
+  #downloadButton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #downloadButton:hover {
+    background-color: #1f8436;
   }
 </style>
 </head>
@@ -22,6 +68,7 @@
   <canvas id="canvas"></canvas>
 </div>
 
+<label id="fileLabel" for="imageInput">ファイルを選択</label>
 <input type="file" accept="image/*" id="imageInput">
 <button id="downloadButton">画像をダウンロード</button>
 
@@ -29,7 +76,7 @@
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 
-canvas.width = 600; // 3:2 aspect ratio
+canvas.width = 600;
 canvas.height = 400;
 
 function clearCanvas() {
